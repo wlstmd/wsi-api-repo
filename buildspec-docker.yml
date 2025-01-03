@@ -16,8 +16,8 @@ phases:
       - aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
   build:
     commands:
-      - python3 -m compileall src/app.py
-      - mv src/__pycache__/*.pyc ./app.pyc
+      - python3 -m compileall wsi-api-repo/src/app.py
+      - mv wsi-api-repo/src/__pycache__/*.pyc ./app.pyc
       - time=$(date -d "+9 hours" +'%y%m%d%H%M%S')
       - docker build -t $ECR_REPO_NAME .
       - docker tag $ECR_REPO_NAME:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPO_NAME:$time
