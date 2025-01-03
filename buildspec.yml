@@ -17,4 +17,10 @@ phases:
 artifacts:
   files:
     - app.pyc
+    - appspec.yml
+    - scripts/
+    - scripts/BeforeInstall.sh
+    - scripts/AfterInstall.sh
+    - scripts/ApplicationStart.sh
+    - scripts/ApplicationStop.sh
 
